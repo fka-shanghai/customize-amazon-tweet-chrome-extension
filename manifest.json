@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+
+  "name": "Custom Amazon Associate Tweet (Japanese)",
+  "description": "This extension fixes tweet status from Amazon Assosiate ToolBar tweet button.",
+  "version": "0.9",
+
+  "content_scripts": [
+       {
+            "matches": ["https://twitter.com/intent/tweet*"],
+            "include_globs": ["*amazon*"],
+            "js": ["main.js"]
+       }
+  ]
+}
