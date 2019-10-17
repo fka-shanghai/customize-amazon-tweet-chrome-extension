@@ -1,9 +1,19 @@
 {
   "manifest_version": 2,
 
-  "name": "Custom Amazon Associate Tweet (Japanese)",
-  "description": "This extension fixes tweet status from Amazon Assosiate ToolBar tweet button.",
-  "version": "0.9",
+  "name": "Amazonアソシエイトtweetカスタマイズ",
+  "description": "アソシエイトツールバーのtweetボタンからツイートする文言をカスタマイズします。",
+  "version": "1.0.0",
+  "author": "f.k.a. shanghai",
+
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
+
+  "permissions": [
+    "storage"
+  ],
 
   "content_scripts": [
        {

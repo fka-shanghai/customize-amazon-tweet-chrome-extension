@@ -1,7 +1,17 @@
-var status = document.querySelector('#status').innerHTML;
-console.log(status);
+chrome.storage.sync.get({
+  text: "{title} {author} {url}",
+}, function(items) {
+  var replacement = items.text;
+  replacement = replacement.replace('{author}', '$$1');
+  replacement = replacement.replace('{title}', '$$2');
+  replacement = replacement.replace('{url}', '$$3');
+  console.log(replacement);
 
-//  author の title を Amazon でチェック！ url @さんから
-var pattern = /(.+)\sの\s(.+)\sを\sAmazon\sでチェック！\s(.+)\s(.+)/;
+  var status = document.querySelector('#status').innerHTML;
+  console.log(status);
 
-document.querySelector('#status').innerHTML = status.replace(pattern, "$2 $1 $3");
+  //  author の title を Amazon でチェック！ url @さんから
+  var pattern = /(.+)\sの\s(.+)\sを\sAmazon\sでチェック！\s(.+)\s(.+)/;
+
+  document.querySelector('#status').innerHTML = status.replace(pattern, replacement);
+});
